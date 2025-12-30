@@ -1186,7 +1186,7 @@
             const splash = document.getElementById('splash-screen');
             setTimeout(() => {
                 splash.classList.add('hidden');
-            }, 2500); // Logo will show for 2.5 seconds
+            }, 500); // Logo will show for 2.5 seconds
         };
 
         function generateCredentials() {
@@ -1252,7 +1252,7 @@
             const toast = document.getElementById("toast");
             toast.innerText = message;
             toast.className = "show";
-            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 500);
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
         }
 
         function openTelegram() {
