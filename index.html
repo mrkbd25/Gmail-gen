@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- ১. মোবাইল রেসপন্সিভ ভিউপোর্ট ফিক্স করা হয়েছে -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>Auto Gmail Generator</title>
     
-    <!-- Monetization Tags -->
+    <!-- Monetization Tags (আপনার দেওয়া ট্যাগগুলো রাখা হয়েছে) -->
     <meta name="monetag" content="3bc3e1215e4b8982fc65c7b203e673e2">
     <script>(function(s){s.dataset.zone='10394627',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script src="https://3nbf4.com/act/files/tag.min.js?z=10394628" data-cfasync="false" async></script>
@@ -14,7 +15,9 @@
 
     <style>
         /* --- CSS Styles --- */
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box; /* এলিমেন্ট সাইজ ঠিক রাখার জন্য */
+        }
 
         :root {
             --bg-color: #f0f2f5;
@@ -31,7 +34,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             margin: 0;
-            padding: 10px;
+            padding: 10px; /* মোবাইলের জন্য প্যাডিং কমানো হয়েছে */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -50,17 +53,16 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.4s ease-out, visibility 0.4s;
+            transition: opacity 0.5s ease-out, visibility 0.5s;
         }
 
         #splash-screen.hidden {
             opacity: 0;
             visibility: hidden;
-            pointer-events: none; /* ক্লিক যাতে নিচে পাস হয় */
         }
 
         .splash-logo {
-            width: 100px;
+            width: 100px; /* মোবাইলের জন্য লোগো সাইজ */
             animation: pulse 1.5s infinite ease-in-out;
         }
 
@@ -74,13 +76,14 @@
         .app-container {
             background-color: var(--card-bg);
             width: 100%;
-            max-width: 400px;
+            max-width: 400px; /* বড় স্ক্রিনে বেশি চওড়া হবে না */
             border-radius: 16px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             overflow: hidden;
             padding-bottom: 20px;
         }
 
+        /* Header */
         header {
             background-color: #fff;
             padding: 15px;
@@ -94,8 +97,12 @@
             color: var(--text-dark);
         }
 
-        .content { padding: 15px; }
+        /* Content Area */
+        .content {
+            padding: 15px; /* মোবাইলের জন্য প্যাডিং */
+        }
 
+        /* Toggles Card */
         .settings-card {
             background: #fff;
             border: 1px solid #e0e0e0;
@@ -111,11 +118,21 @@
             padding: 12px 5px;
         }
 
-        .toggle-row:first-child { border-bottom: 1px solid #f0f0f0; }
+        .toggle-row:first-child {
+            border-bottom: 1px solid #f0f0f0;
+        }
 
-        .toggle-text h4 { margin: 0 0 4px 0; font-size: 14px; }
-        .toggle-text p { margin: 0; font-size: 11px; color: var(--text-grey); }
+        .toggle-text h4 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+        }
+        .toggle-text p {
+            margin: 0;
+            font-size: 11px;
+            color: var(--text-grey);
+        }
 
+        /* Switch CSS */
         .switch {
             position: relative;
             display: inline-block;
@@ -146,6 +163,7 @@
         input:checked + .slider { background-color: var(--primary-blue); }
         input:checked + .slider:before { transform: translateX(20px); }
 
+        /* Output Sections */
         .section-label {
             font-size: 11px;
             font-weight: bold;
@@ -165,7 +183,7 @@
         }
 
         .output-text {
-            font-size: 16px;
+            font-size: 16px; /* মোবাইলে ভেঙে না যাওয়ার জন্য একটু ছোট */
             font-weight: bold;
             color: var(--text-dark);
             margin-bottom: 12px;
@@ -186,6 +204,7 @@
             justify-content: center;
             gap: 8px;
             transition: opacity 0.2s;
+            /* Touch target optimization */
             min-height: 44px; 
         }
         .btn-copy:active { opacity: 0.8; }
@@ -204,6 +223,7 @@
             font-weight: 500;
         }
 
+        /* Main Buttons */
         .btn-main {
             width: 100%;
             padding: 15px;
@@ -235,6 +255,41 @@
             padding: 10px;
         }
 
+        /* --- NEW PROMO CARD STYLE --- */
+        .promo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #42a5f5 0%, #1976d2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+            text-align: center;
+            border: 2px solid white;
+            outline: 2px solid #1976d2;
+        }
+        .promo-card:active {
+            transform: scale(0.97);
+        }
+        .promo-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+        .promo-card p {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .promo-card span {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
         footer {
             text-align: center;
             font-size: 10px;
@@ -243,6 +298,7 @@
             padding: 0 20px;
         }
 
+        /* Toast Notification */
         #toast {
             visibility: hidden;
             min-width: 200px;
@@ -269,7 +325,7 @@
 </head>
 <body>
 
-    <!-- SPLASH SCREEN -->
+    <!-- SPLASH SCREEN (LOGO) -->
     <div id="splash-screen">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail Logo" class="splash-logo">
     </div>
@@ -278,9 +334,13 @@
         <header>
             <div style="text-align: center; margin-bottom: 5px;">
                 <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background Circle -->
                     <circle cx="50" cy="50" r="45" fill="#1976d2" />
+                    <!-- Envelope Body -->
                     <rect x="25" y="35" width="50" height="35" rx="4" fill="white"/>
+                    <!-- Envelope Flap -->
                     <path d="M25 35 L50 55 L75 35" stroke="#1976d2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Refresh/Sync Arrow -->
                     <path d="M50 20 V28 M50 20 L55 24 M50 20 L45 24" stroke="white" stroke-width="4" stroke-linecap="round"/>
                     <path d="M78 50 A 28 28 0 0 1 50 78" stroke="white" stroke-width="3" stroke-dasharray="4 4" stroke-linecap="round"/>
                     <path d="M22 50 A 28 28 0 0 1 50 22" stroke="white" stroke-width="3" stroke-dasharray="4 4" stroke-linecap="round"/>
@@ -290,6 +350,7 @@
         </header>
 
         <div class="content">
+            <!-- Settings Card -->
             <div class="settings-card">
                 <div class="toggle-row">
                     <div class="toggle-text">
@@ -313,6 +374,7 @@
                 </div>
             </div>
 
+            <!-- Email Section -->
             <div class="section-label">Generated Gmail</div>
             <div class="output-box">
                 <div class="output-text" id="emailDisplay">Loading...</div>
@@ -322,6 +384,7 @@
                 <div class="helper-text">Generate a new one if already used</div>
             </div>
 
+            <!-- Password Section -->
             <div class="section-label">Password</div>
             <div class="output-box">
                 <div class="output-text" id="passDisplay">Loading...</div>
@@ -333,11 +396,20 @@
                 </button>
             </div>
 
+            <!-- Action Buttons -->
             <button class="btn-main" onclick="generateCredentials()">Generate New Gmail</button>
             
             <button class="btn-link" onclick="openTelegram()">
                 <span>✈️</span> Support on Telegram
             </button>
+
+            <!-- NEW PROMO CARD (LINKED) -->
+            <a href="https://unlimited-g.vercel.app/" target="_blank" class="promo-card">
+                <span>🚀</span>
+                <h3>Unlimited Gmail Generator</h3>
+                <p>Click here to get unlimited access</p>
+            </a>
+
         </div>
 
         <footer>
@@ -345,9 +417,12 @@
         </footer>
     </div>
 
+    <!-- Toast Notification -->
     <div id="toast">Copied to clipboard!</div>
 
     <script>
+        /* --- JavaScript Logic --- */
+        
         const names = [
             "willow", "james", "river", "sky", "jordan", "alex", "casey", 
             "morgan", "taylor", "avery", "parker", "quinn", "rowan", "sage",
@@ -357,18 +432,13 @@
         let currentEmail = "";
         let currentPass = "";
 
-        // --- Performance Fix Start ---
-        // 'window.onload' এর পরিবর্তে 'DOMContentLoaded' ব্যবহার করা হয়েছে যাতে অ্যাড লোড হওয়ার আগেই অ্যাপ চালু হয়।
-        document.addEventListener("DOMContentLoaded", function() {
+        window.onload = function() {
             generateCredentials();
             const splash = document.getElementById('splash-screen');
-            
-            // টাইমার কমিয়ে ৫০০ms (০.৫ সেকেন্ড) করা হয়েছে
             setTimeout(() => {
                 splash.classList.add('hidden');
-            }, 500); 
-        });
-        // --- Performance Fix End ---
+            }, 2500); 
+        };
 
         function generateCredentials() {
             const useTwoNames = document.getElementById('toggleTwoNames').checked;
